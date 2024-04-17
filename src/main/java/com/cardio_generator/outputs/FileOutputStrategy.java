@@ -28,8 +28,8 @@ public class FileOutputStrategy implements OutputStrategy {
             return;
         }
         // Set the FilePath variable
-        String FilePath = file_map.computeIfAbsent(label, k -> Paths.get(BaseDirectory, label +
-                ".txt").toString());  // 100 columns limit - Style Guide Violation
+        String FilePath = file_map.computeIfAbsent(label, k ->  // 100 columns limit - Style Guide Violation
+                Paths.get(BaseDirectory, label + ".txt").toString());
 
         // Write the data to the file
         try (PrintWriter out = new PrintWriter(
