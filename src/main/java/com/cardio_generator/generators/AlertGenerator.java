@@ -20,21 +20,26 @@ public class AlertGenerator implements PatientDataGenerator {
                 if (randomGenerator.nextDouble() < 0.9) { // 90% chance to resolve
                     AlertStates[patientId] = false;
                     // Output the alert
-                    outputStrategy.output(patientId, System.currentTimeMillis(), "Alert", "resolved");
+                    outputStrategy.output(patientId, System.currentTimeMillis(), "Alert",
+                            "resolved"); // 100 columns limit - Style Guide Violation
                 }
             } else {
-                double Lambda = 0.1; // Average rate (alerts per period), adjust based on desired frequency
-                double p = -Math.expm1(-Lambda); // Probability of at least one alert in the period
+                // Lambda -> lambda - lowerCamelCase Style Guide Violation
+                double lambda = 0.1; // Average rate (alerts per period),
+                                     // adjust based on desired frequency
+                double p = -Math.expm1(-lambda); // Probability of at least one alert in the period
                 boolean alertTriggered = randomGenerator.nextDouble() < p;
 
                 if (alertTriggered) {
                     AlertStates[patientId] = true;
                     // Output the alert
-                    outputStrategy.output(patientId, System.currentTimeMillis(), "Alert", "triggered");
+                    outputStrategy.output(patientId, System.currentTimeMillis(), "Alert",
+                            "triggered"); // 100 columns limit - Style Guide Violation
                 }
             }
         } catch (Exception e) {
-            System.err.println("An error occurred while generating alert data for patient " + patientId);
+            System.err.println("An error occurred while generating alert data for patient " +
+                    patientId); // 100 columns limit - Style Guide Violation
             e.printStackTrace();
         }
     }

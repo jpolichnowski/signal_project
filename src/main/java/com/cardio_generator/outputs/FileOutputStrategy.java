@@ -6,7 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.concurrent.ConcurrentHashMap;
-
+// class name should start with a capital letter - UpperCamelCase Style Guide Violation
 public class FileOutputStrategy implements OutputStrategy {
 
     private String BaseDirectory;
