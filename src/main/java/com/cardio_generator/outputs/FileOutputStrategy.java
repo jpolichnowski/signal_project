@@ -28,12 +28,15 @@ public class FileOutputStrategy implements OutputStrategy {
             return;
         }
         // Set the FilePath variable
-        String FilePath = file_map.computeIfAbsent(label, k -> Paths.get(BaseDirectory, label + ".txt").toString());
+        String FilePath = file_map.computeIfAbsent(label, k -> Paths.get(BaseDirectory, label +
+                ".txt").toString());  // 100 columns limit - Style Guide Violation
 
         // Write the data to the file
         try (PrintWriter out = new PrintWriter(
-                Files.newBufferedWriter(Paths.get(FilePath), StandardOpenOption.CREATE, StandardOpenOption.APPEND))) {
-            out.printf("Patient ID: %d, Timestamp: %d, Label: %s, Data: %s%n", patientId, timestamp, label, data);
+                Files.newBufferedWriter(Paths.get(FilePath), // 100 columns limit - Style Guide Violation
+                        StandardOpenOption.CREATE, StandardOpenOption.APPEND))) {
+            out.printf("Patient ID: %d, Timestamp: %d, Label: %s, Data: %s%n",
+                    patientId, timestamp, label, data); // 100 columns limit - Style Guide Violation
         } catch (Exception e) {
             System.err.println("Error writing to file " + FilePath + ": " + e.getMessage());
         }
